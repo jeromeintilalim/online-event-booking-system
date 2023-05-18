@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/online-event-booking-system/static/css/main.09d6ff9d.css",
+    "main.js": "/online-event-booking-system/static/js/main.a454882b.js",
+    "static/js/787.b0ed8038.chunk.js": "/online-event-booking-system/static/js/787.b0ed8038.chunk.js",
+    "static/media/bookingVector2.png": "/online-event-booking-system/static/media/bookingVector2.e1c7a71cb774e73492ff.png",
+    "static/media/xmas.jpg": "/online-event-booking-system/static/media/xmas.a15d12d326045d9dc953.jpg",
+    "static/media/store.jpg": "/online-event-booking-system/static/media/store.91e8f45f841af07a0ac6.jpg",
+    "static/media/wed.jpg": "/online-event-booking-system/static/media/wed.93074bf79e484d11b54b.jpg",
+    "static/media/gr.jpg": "/online-event-booking-system/static/media/gr.9a10c381ed1e29d85ce4.jpg",
+    "static/media/md.jpg": "/online-event-booking-system/static/media/md.229bcce3455d126885d4.jpg",
+    "static/media/bday.jpg": "/online-event-booking-system/static/media/bday.78bccdec6a24a46a2acc.jpg",
+    "static/media/event7.jpg": "/online-event-booking-system/static/media/event7.44a61393687ea272251f.jpg",
+    "static/media/halloween.jpg": "/online-event-booking-system/static/media/halloween.44a61393687ea272251f.jpg",
+    "static/media/og.jpg": "/online-event-booking-system/static/media/og.7cd24f7ff9f5dbbe3d46.jpg",
+    "static/media/logo.png": "/online-event-booking-system/static/media/logo.8a3f92cafacce6b795b0.png",
+    "static/media/logo.svg": "/online-event-booking-system/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/online-event-booking-system/index.html",
+    "main.09d6ff9d.css.map": "/online-event-booking-system/static/css/main.09d6ff9d.css.map",
+    "main.a454882b.js.map": "/online-event-booking-system/static/js/main.a454882b.js.map",
+    "787.b0ed8038.chunk.js.map": "/online-event-booking-system/static/js/787.b0ed8038.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.09d6ff9d.css",
+    "static/js/main.a454882b.js"
+  ]
+}
