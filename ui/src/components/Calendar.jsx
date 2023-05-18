@@ -221,136 +221,123 @@ const Kalendaryo = props => {
     return (
         <ChakraProvider>
             <ToastContainer position="top-center" />
-            <Box style={{ marginTop: "-150px" }}>
-                <Stack>
-                    <Calendar
-                        onClickMonth={handleMonthChange}
-                        onClickYear={handleYearChange}
-                        onChange={handleDateChange}
-                        value={selectedDate}
-                        className="calendar"
-                    />
-                    <Popover
-                        isOpen={popover.isOpen}
-                        onClose={popover.onClose}
-                        placement='left'
-                        closeOnBlur={true}
-                    >
-                        <PopoverTrigger>
-                            <Text style={{ marginTop: "-150px" }}>&nbsp;</Text>
-                        </PopoverTrigger>
-                        <PopoverContent w="700px">
-                            <PopoverArrow />
-                            <PopoverCloseButton />
-                            <PopoverHeader display="flex">
-                                Date details
-                            </PopoverHeader>
-                            <PopoverBody>
-                                <TableContainer>
-                                    <Table variant='simple'>
-                                        <Thead>
-                                            <Tr>
-                                                <Th>Event Name</Th>
-                                                <Th>Type of event</Th>
-                                                <Th>Start Time</Th>
-                                                <Th>End Time</Th>
-                                                <Th>Location</Th>
-                                                <Th>Actions</Th>
-                                            </Tr>
-                                        </Thead>
-                                        <Tbody>
-                                            {
-                                                props.clientList.length > 0 ? props.clientList.map(data => {
+            <Box style={{ marginTop: "-200px" }}>
+                <Calendar
+                    onClickMonth={handleMonthChange}
+                    onClickYear={handleYearChange}
+                    onChange={handleDateChange}
+                    value={selectedDate}
+                    className="calendar"
+                />
+                <Popover
+                    isOpen={popover.isOpen}
+                    onClose={popover.onClose}
+                    placement='top-start'
+                    closeOnBlur={true}
+                // matchWidth={false}
+                >
 
-                                                    const result = Object.values(data);
-                                                    const eventDateFinal = result[7].slice(0, 10);
+                    <PopoverContent w={{ base: "100vw", xl: "100%" }}>
+                        <PopoverArrow />
+                        <PopoverCloseButton />
+                        <PopoverHeader display="flex">
+                            Date details
+                        </PopoverHeader>
+                        <PopoverBody>
+                            <TableContainer>
+                                <Table variant='simple'>
+                                    <Thead>
+                                        <Tr>
+                                            <Th>Event Name</Th>
+                                            <Th>Type of event</Th>
+                                            <Th>Start Time</Th>
+                                            <Th>End Time</Th>
+                                            <Th>Location</Th>
+                                            <Th>Actions</Th>
+                                        </Tr>
+                                    </Thead>
+                                    <Tbody>
+                                        {
+                                            props.clientList.length > 0 ? props.clientList.map(data => {
 
-                                                    if (eventDateFinal === dateFinal) {
-                                                        dateArray.push(eventDateFinal);
-                                                        newDateArray.push(dateArray);
-                                                    } else {
-                                                        dateArray = [];
-                                                    }
-                                                    return (
-                                                        dateArray.includes(eventDateFinal) ?
-                                                            <Tr key={data.id}>
-                                                                <Td>{data.eventName}</Td>
-                                                                <Td>{data.type} {data.others != null ? <>({data.others})</> : <></>}</Td>
-                                                                <Td>{data.startTime}</Td>
-                                                                <Td>{data.endTime}</Td>
-                                                                <Td>{data.location}</Td>
-                                                                <Td>
-                                                                    <Button
-                                                                        colorScheme='blue'
-                                                                        mr={3}
-                                                                        onClick={() => handleEdit(data)}
-                                                                    >
-                                                                        Edit
-                                                                    </Button>
-                                                                    <Button
-                                                                        colorScheme='red'
-                                                                        mr={3}
-                                                                        onClick={() => handleDelete(data.id)}
-                                                                        className="erase"
-                                                                    >
-                                                                        Delete
-                                                                    </Button>
-                                                                </Td>
+                                                const result = Object.values(data);
+                                                const eventDateFinal = result[7].slice(0, 10);
 
-                                                                <AlertDialog
-                                                                    isOpen={dialog.isOpen}
-                                                                    leastDestructiveRef={cancelRef}
-                                                                    onClose={dialog.onClose}
+                                                if (eventDateFinal === dateFinal) {
+                                                    dateArray.push(eventDateFinal);
+                                                    newDateArray.push(dateArray);
+                                                } else {
+                                                    dateArray = [];
+                                                }
+                                                return (
+                                                    dateArray.includes(eventDateFinal) ?
+                                                        <Tr key={data.id}>
+                                                            <Td>{data.eventName}</Td>
+                                                            <Td>{data.type} {data.others != null ? <>({data.others})</> : <></>}</Td>
+                                                            <Td>{data.startTime}</Td>
+                                                            <Td>{data.endTime}</Td>
+                                                            <Td>{data.location}</Td>
+                                                            <Td>
+                                                                <Button
+                                                                    colorScheme='blue'
+                                                                    mr={3}
+                                                                    onClick={() => handleEdit(data)}
                                                                 >
-                                                                    <AlertDialogOverlay>
-                                                                        <AlertDialogContent>
-                                                                            <AlertDialogHeader fontSize='lg' fontWeight='bold'>
-                                                                                Delete Customer
-                                                                            </AlertDialogHeader>
+                                                                    Edit
+                                                                </Button>
+                                                                <Button
+                                                                    colorScheme='red'
+                                                                    mr={3}
+                                                                    onClick={() => handleDelete(data.id)}
+                                                                    className="erase"
+                                                                >
+                                                                    Delete
+                                                                </Button>
+                                                            </Td>
 
-                                                                            <AlertDialogBody>
-                                                                                Are you sure? You can't undo this action afterwards.
-                                                                            </AlertDialogBody>
+                                                            <AlertDialog
+                                                                isOpen={dialog.isOpen}
+                                                                leastDestructiveRef={cancelRef}
+                                                                onClose={dialog.onClose}
+                                                            >
+                                                                <AlertDialogOverlay>
+                                                                    <AlertDialogContent>
+                                                                        <AlertDialogHeader fontSize='lg' fontWeight='bold'>
+                                                                            Delete Customer
+                                                                        </AlertDialogHeader>
 
-                                                                            <AlertDialogFooter>
-                                                                                <Button ref={cancelRef} onClick={dialog.onClose}>
-                                                                                    Cancel
-                                                                                </Button>
-                                                                                <Button
-                                                                                    colorScheme='red'
-                                                                                    onClick={() => handleDelete(data.id)}
-                                                                                    ml={3}
-                                                                                >
-                                                                                    Delete
-                                                                                </Button>
-                                                                            </AlertDialogFooter>
-                                                                        </AlertDialogContent>
-                                                                    </AlertDialogOverlay>
-                                                                </AlertDialog>
-                                                            </Tr>
-                                                            : null
-                                                    )
-                                                })
-                                                    :
-                                                    <></>
-                                            }
-                                        </Tbody>
-                                    </Table>
-                                </TableContainer>
+                                                                        <AlertDialogBody>
+                                                                            Are you sure? You can't undo this action afterwards.
+                                                                        </AlertDialogBody>
 
-                                {newDateArray.length >= 5 ?
-                                    <Tooltip label='Maximum of 5 events per day only.' placement='bottom'>
-                                        <Button
-                                            colorScheme='blue'
-                                            mt={3}
-                                            mr={3}
-                                            onClick={() => openModal()}
-                                            isDisabled={newDateArray.length >= 5 ? true : false}
-                                        >
-                                            Add an Event
-                                        </Button>
-                                    </Tooltip>
-                                    :
+                                                                        <AlertDialogFooter>
+                                                                            <Button ref={cancelRef} onClick={dialog.onClose}>
+                                                                                Cancel
+                                                                            </Button>
+                                                                            <Button
+                                                                                colorScheme='red'
+                                                                                onClick={() => handleDelete(data.id)}
+                                                                                ml={3}
+                                                                            >
+                                                                                Delete
+                                                                            </Button>
+                                                                        </AlertDialogFooter>
+                                                                    </AlertDialogContent>
+                                                                </AlertDialogOverlay>
+                                                            </AlertDialog>
+                                                        </Tr>
+                                                        : null
+                                                )
+                                            })
+                                                :
+                                                <></>
+                                        }
+                                    </Tbody>
+                                </Table>
+                            </TableContainer>
+
+                            {newDateArray.length >= 5 ?
+                                <Tooltip label='Maximum of 5 events per day only.' placement='bottom'>
                                     <Button
                                         colorScheme='blue'
                                         mt={3}
@@ -360,164 +347,177 @@ const Kalendaryo = props => {
                                     >
                                         Add an Event
                                     </Button>
-                                }
-                            </PopoverBody>
-                        </PopoverContent>
-                    </Popover>
-                    <Modal
-                        size={"xl"}
-                        isOpen={modal.isOpen}
-                        onClose={() => closeModal()}
-                    >
-                        <form onSubmit={handleSubmit(status == "create" ? onCreateSubmit : onUpdateSubmit)}>
-                            <ModalOverlay />
-                            <ModalContent>
-                                <ModalHeader>Add an Event</ModalHeader>
-                                <ModalCloseButton />
-                                <ModalBody pb={6}>
-                                    <FormControl>
-                                        <FormLabel>Event Name</FormLabel>
-                                        <Input
-                                            // value={values.eventName}
-                                            // onChange={handleInputChange}
-                                            placeholder='Enter name of event'
-                                            id='eventName'
-                                            {...register('eventName', {
-                                                required: 'This is required'
-                                            })}
-                                        />
-                                        <FormErrorMessage>
-                                            {errors.name && errors.name.message}
-                                        </FormErrorMessage>
-                                    </FormControl>
-
-                                    <Stack direction="row" mt={3}>
-                                        <FormControl>
-                                            <FormLabel>Type of event</FormLabel>
-                                            <Select
-                                                // value={eventType}
-                                                // onChange={e => setEventType(e.target.value)}
-                                                id="type"
-                                                // value={values.type}
-                                                // onChange={handleInputChange}
-                                                placeholder='Select type of event'
-                                                {...register('type', {
-                                                    required: 'This is required'
-                                                })}
-                                            >
-                                                <option value='Birthday'>Birthday</option>
-                                                <option value='Wedding'>Wedding</option>
-                                                <option value='Gender Reveal'>Gender Reveal</option>
-                                                <option value='Halloween'>Halloween</option>
-                                                <option value='Mother&lsquo;s Day'>Mother's Day</option>
-                                                <option value='Holiday Season'>Holiday Season</option>
-                                                <option value='Others'>Others..</option>
-                                            </Select>
-                                            <FormErrorMessage>
-                                                {errors.type && errors.type.message}
-                                            </FormErrorMessage>
-                                        </FormControl>
-                                        {watchTypeCheck == "Others" ?
-                                            <FormControl>
-                                                <FormLabel>Others</FormLabel>
-                                                <Input
-                                                    placeholder='Enter type of event'
-                                                    // value={values.others}
-                                                    // onChange={handleInputChange}
-                                                    id='others'
-                                                    {...register('others')}
-                                                />
-                                                <FormErrorMessage>
-                                                    {errors.others && errors.others.message}
-                                                </FormErrorMessage>
-                                            </FormControl>
-                                            : null
-                                        }
-                                    </Stack>
-                                    {!allDay ?
-                                        <Stack direction="row" mt={3}>
-                                            <FormControl>
-                                                <FormLabel>Start Time</FormLabel>
-                                                <Input
-                                                    type="time"
-                                                    // value={values.startTime}
-                                                    // onChange={handleInputChange}
-                                                    id='startTime'
-                                                    {...register('startTime', {
-                                                        required: 'This is required'
-                                                    })}
-                                                />
-                                                <FormErrorMessage>
-                                                    {errors.startTime && errors.startTime.message}
-                                                </FormErrorMessage>
-                                            </FormControl>
-                                            <FormControl>
-                                                <FormLabel>End Time</FormLabel>
-                                                <Input
-                                                    type="time"
-                                                    // value={values.endTime}
-                                                    // onChange={handleInputChange}
-                                                    id='endTime'
-                                                    {...register('endTime', {
-                                                        required: 'This is required'
-                                                    })}
-                                                />
-                                                <FormErrorMessage>
-                                                    {errors.endTime && errors.endTime.message}
-                                                </FormErrorMessage>
-                                            </FormControl>
-                                        </Stack>
-                                        : <></>
-                                    }
-                                    <FormControl mt={3}>
-                                        <FormLabel>Event Location</FormLabel>
-                                        <Input
-                                            placeholder='Enter location of event'
-                                            // value={values.location}
-                                            // onChange={handleInputChange}
-                                            id='location'
-                                            {...register('location', {
-                                                required: 'This is required'
-                                            })}
-                                        />
-                                        <FormErrorMessage>
-                                            {errors.location && errors.location.message}
-                                        </FormErrorMessage>
-                                    </FormControl>
+                                </Tooltip>
+                                :
+                                <Button
+                                    colorScheme='blue'
+                                    mt={3}
+                                    mr={3}
+                                    onClick={() => openModal()}
+                                    isDisabled={newDateArray.length >= 5 ? true : false}
+                                >
+                                    Add an Event
+                                </Button>
+                            }
+                        </PopoverBody>
+                    </PopoverContent>
+                    <PopoverTrigger>
+                        <Text style={{ marginTop: "-150px" }}>&nbsp;</Text>
+                    </PopoverTrigger>
+                </Popover>
+                <Modal
+                    size={"xl"}
+                    isOpen={modal.isOpen}
+                    onClose={() => closeModal()}
+                >
+                    <form onSubmit={handleSubmit(status == "create" ? onCreateSubmit : onUpdateSubmit)}>
+                        <ModalOverlay />
+                        <ModalContent>
+                            <ModalHeader>Add an Event</ModalHeader>
+                            <ModalCloseButton />
+                            <ModalBody pb={6}>
+                                <FormControl>
+                                    <FormLabel>Event Name</FormLabel>
                                     <Input
-                                        type="date"
-                                        display="none"
-                                        value={dateFinal}
-                                        id='eventDate'
-                                        {...register('eventDate', {
-                                            required: 'This is required',
-                                            valueAsDate: true,
+                                        // value={values.eventName}
+                                        // onChange={handleInputChange}
+                                        placeholder='Enter name of event'
+                                        id='eventName'
+                                        {...register('eventName', {
+                                            required: 'This is required'
                                         })}
                                     />
-                                    {/* <Input id="today" type="date" /> */}
+                                    <FormErrorMessage>
+                                        {errors.name && errors.name.message}
+                                    </FormErrorMessage>
+                                </FormControl>
 
-                                </ModalBody>
-
-                                <ModalFooter justifyContent="space-between">
-                                    <Box>
-                                        {/* <Checkbox onChange={() => setAllDay(!allDay)} size="lg">All day</Checkbox> */}
-                                    </Box>
-                                    <Box>
-                                        <Button
-                                            colorScheme='blue'
-                                            mr={3}
-                                            type="submit"
-                                            isLoading={isSubmitting}
+                                <Stack direction="row" mt={3}>
+                                    <FormControl>
+                                        <FormLabel>Type of event</FormLabel>
+                                        <Select
+                                            // value={eventType}
+                                            // onChange={e => setEventType(e.target.value)}
+                                            id="type"
+                                            // value={values.type}
+                                            // onChange={handleInputChange}
+                                            placeholder='Select type of event'
+                                            {...register('type', {
+                                                required: 'This is required'
+                                            })}
                                         >
-                                            Save
-                                        </Button>
-                                        <Button onClick={modal.onClose}>Cancel</Button>
-                                    </Box>
-                                </ModalFooter>
-                            </ModalContent>
-                        </form>
-                    </Modal>
-                </Stack>
+                                            <option value='Birthday'>Birthday</option>
+                                            <option value='Wedding'>Wedding</option>
+                                            <option value='Gender Reveal'>Gender Reveal</option>
+                                            <option value='Halloween'>Halloween</option>
+                                            <option value='Mother&lsquo;s Day'>Mother's Day</option>
+                                            <option value='Holiday Season'>Holiday Season</option>
+                                            <option value='Others'>Others..</option>
+                                        </Select>
+                                        <FormErrorMessage>
+                                            {errors.type && errors.type.message}
+                                        </FormErrorMessage>
+                                    </FormControl>
+                                    {watchTypeCheck == "Others" ?
+                                        <FormControl>
+                                            <FormLabel>Others</FormLabel>
+                                            <Input
+                                                placeholder='Enter type of event'
+                                                // value={values.others}
+                                                // onChange={handleInputChange}
+                                                id='others'
+                                                {...register('others')}
+                                            />
+                                            <FormErrorMessage>
+                                                {errors.others && errors.others.message}
+                                            </FormErrorMessage>
+                                        </FormControl>
+                                        : null
+                                    }
+                                </Stack>
+                                {!allDay ?
+                                    <Stack direction="row" mt={3}>
+                                        <FormControl>
+                                            <FormLabel>Start Time</FormLabel>
+                                            <Input
+                                                type="time"
+                                                // value={values.startTime}
+                                                // onChange={handleInputChange}
+                                                id='startTime'
+                                                {...register('startTime', {
+                                                    required: 'This is required'
+                                                })}
+                                            />
+                                            <FormErrorMessage>
+                                                {errors.startTime && errors.startTime.message}
+                                            </FormErrorMessage>
+                                        </FormControl>
+                                        <FormControl>
+                                            <FormLabel>End Time</FormLabel>
+                                            <Input
+                                                type="time"
+                                                // value={values.endTime}
+                                                // onChange={handleInputChange}
+                                                id='endTime'
+                                                {...register('endTime', {
+                                                    required: 'This is required'
+                                                })}
+                                            />
+                                            <FormErrorMessage>
+                                                {errors.endTime && errors.endTime.message}
+                                            </FormErrorMessage>
+                                        </FormControl>
+                                    </Stack>
+                                    : <></>
+                                }
+                                <FormControl mt={3}>
+                                    <FormLabel>Event Location</FormLabel>
+                                    <Input
+                                        placeholder='Enter location of event'
+                                        // value={values.location}
+                                        // onChange={handleInputChange}
+                                        id='location'
+                                        {...register('location', {
+                                            required: 'This is required'
+                                        })}
+                                    />
+                                    <FormErrorMessage>
+                                        {errors.location && errors.location.message}
+                                    </FormErrorMessage>
+                                </FormControl>
+                                <Input
+                                    type="date"
+                                    display="none"
+                                    value={dateFinal}
+                                    id='eventDate'
+                                    {...register('eventDate', {
+                                        required: 'This is required',
+                                        valueAsDate: true,
+                                    })}
+                                />
+                                {/* <Input id="today" type="date" /> */}
+
+                            </ModalBody>
+
+                            <ModalFooter justifyContent="space-between">
+                                <Box>
+                                    {/* <Checkbox onChange={() => setAllDay(!allDay)} size="lg">All day</Checkbox> */}
+                                </Box>
+                                <Box>
+                                    <Button
+                                        colorScheme='blue'
+                                        mr={3}
+                                        type="submit"
+                                        isLoading={isSubmitting}
+                                    >
+                                        Save
+                                    </Button>
+                                    <Button onClick={modal.onClose}>Cancel</Button>
+                                </Box>
+                            </ModalFooter>
+                        </ModalContent>
+                    </form>
+                </Modal>
             </Box>
         </ChakraProvider>
     );

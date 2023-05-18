@@ -9,13 +9,15 @@ import CustomCard from '../components/Card'
 
 function Events() {
     return (
-        <Container bgColor="#FFF" mt="16" mb="24">
+        <Container id="events" bgColor="#FFF" mt="16" mb="24">
             <Heading textAlign="center" fontSize='40' fontWeight="bold">EVENTS</Heading>
             <Text textAlign="center">Choose from any of our six listed events. You can create a custom one as well.</Text>
             <Grid
-                templateRows='repeat(2, 1fr)'
-                templateColumns='repeat(3, 1fr)'
-                mx={60}>
+                gap={8}
+                templateRows={{ base: 'repeat(6, 1fr)', lg: 'repeat(3, 1fr)', xl: 'repeat(2, 1fr)' }}
+                templateColumns={{ base: 'repeat(1, 1fr)', lg: 'repeat(2, 1fr)', xl: 'repeat(3, 1fr)' }}
+                mx={{ base: '12', md: '24', lg: '12', xl: '16', '2xl': '48' }}
+            >
                 <GridItem w='100%' h='100%' mt="8">
                     <CustomCard img={Bday} heading="Birthday" text="I hope your celebration gives you many happy memories!" />
                 </GridItem>

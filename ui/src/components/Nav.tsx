@@ -29,9 +29,9 @@ export default function WithSubnavigation() {
 
 	return (
 		<Box
-			// boxShadow="md"
-			// position="relative"
-			>
+		// boxShadow="md"
+		// position="relative"
+		>
 			<Flex
 				// bg={useColorModeValue('#FFEFF0', 'gray.800')}
 				bg={useColorModeValue('#FFF', 'gray.800')}
@@ -63,7 +63,7 @@ export default function WithSubnavigation() {
 						textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
 						fontFamily={'heading'}
 						color={useColorModeValue('gray.800', 'white')}>
-						<Img src={Logo} w="60%" />
+						<Img src={Logo} w={{ base: "100%", lg: "60%" }} mx="auto" />
 					</Text>
 				</Flex>
 
@@ -171,6 +171,7 @@ const MobileNav = () => {
 		<Stack
 			bg={useColorModeValue('white', 'gray.800')}
 			p={4}
+			mb={40}
 			display={{ md: 'none' }}>
 			{NAV_ITEMS.map((navItem) => (
 				<MobileNavItem key={navItem.label} {...navItem} />
@@ -239,18 +240,14 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
 	{
 		label: 'Home',
-		href: '#',
+		href: '#home',
 	},
 	{
 		label: 'Events',
-		href: '#',
+		href: '#events',
 	},
 	{
 		label: 'Booking',
-		href: '#',
-	},
-	{
-		label: 'Contact',
-		href: '#',
+		href: '#booking',
 	},
 ];
