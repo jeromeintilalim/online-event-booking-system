@@ -137,6 +137,7 @@ const Kalendaryo = props => {
 
     const onCreateSubmit = data => {
         props.createEventClient(data, () => successAdd())
+        console.log(JSON.stringify(data));
         reset();
         modal.onClose();
         setStatus("");
@@ -483,15 +484,16 @@ const Kalendaryo = props => {
                                             {errors.location && errors.location.message}
                                         </FormErrorMessage>
                                     </FormControl>
-                                    {/* <Input
+                                    <Input
                                         type="date"
+                                        display="none"
                                         value={dateFinal}
                                         id='eventDate'
                                         {...register('eventDate', {
                                             required: 'This is required',
                                             valueAsDate: true,
                                         })}
-                                    /> */}
+                                    />
                                     {/* <Input id="today" type="date" /> */}
 
                                 </ModalBody>

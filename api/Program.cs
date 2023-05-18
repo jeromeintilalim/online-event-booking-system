@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using sad_react_WebAPI.Models;
 
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,18 +26,21 @@ builder.Services.AddCors();
 var app = builder.Build();
 
 app.UseCors(options =>
-options.WithOrigins("http://localhost:3000")
-.AllowAnyHeader()
-.AllowAnyMethod());
+    //options.WithOrigins("http://localhost:5011")
+    options.AllowAnyOrigin()
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+);
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseAuthorization();
+
 
 app.MapControllers();
 

@@ -1,6 +1,5 @@
 import { Container, Grid, GridItem, Image, Text, Heading, Box } from '@chakra-ui/react'
 import Vector from '../images/bookingVector2.png'
-import BookingForm from './BookingForm.tsx'
 import Kalendaryo from './Calendar';
 
 function Booking() {
