@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://jeromelim29-001-site1.atempurl.com/api/"
+const baseUrl = "https://jeromelim29-001-site1.atempurl.com/api/"
 
 export default {
     eventClient(url = baseUrl + "EventClient/") {
