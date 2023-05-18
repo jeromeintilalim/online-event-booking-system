@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/online-event-booking-system/static/css/main.09d6ff9d.css",
-    "main.js": "/online-event-booking-system/static/js/main.822f53d4.js",
+    "main.css": "/online-event-booking-system/static/css/main.0763a888.css",
+    "main.js": "/online-event-booking-system/static/js/main.1ad95b81.js",
     "static/js/787.b0ed8038.chunk.js": "/online-event-booking-system/static/js/787.b0ed8038.chunk.js",
     "static/media/bookingVector2.png": "/online-event-booking-system/static/media/bookingVector2.e1c7a71cb774e73492ff.png",
     "static/media/xmas.jpg": "/online-event-booking-system/static/media/xmas.a15d12d326045d9dc953.jpg",
@@ -16,12 +16,12 @@
     "static/media/logo.png": "/online-event-booking-system/static/media/logo.8a3f92cafacce6b795b0.png",
     "static/media/logo.svg": "/online-event-booking-system/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/online-event-booking-system/index.html",
-    "main.09d6ff9d.css.map": "/online-event-booking-system/static/css/main.09d6ff9d.css.map",
-    "main.822f53d4.js.map": "/online-event-booking-system/static/js/main.822f53d4.js.map",
+    "main.0763a888.css.map": "/online-event-booking-system/static/css/main.0763a888.css.map",
+    "main.1ad95b81.js.map": "/online-event-booking-system/static/js/main.1ad95b81.js.map",
     "787.b0ed8038.chunk.js.map": "/online-event-booking-system/static/js/787.b0ed8038.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.09d6ff9d.css",
-    "static/js/main.822f53d4.js"
+    "static/css/main.0763a888.css",
+    "static/js/main.1ad95b81.js"
   ]
 }
