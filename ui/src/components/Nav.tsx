@@ -68,11 +68,12 @@ export default function WithSubnavigation() {
 				</Flex>
 
 				<Stack
+					mr={4}
 					flex={{ base: 1, md: 0 }}
 					justify={'flex-end'}
 					direction={'row'}
 					spacing={6}>
-					<Flex display={{ base: 'none', md: 'flex' }} mr={{ md: 0, lg: 20, xl: 40 }} my={{ md: 0, lg: 8, xl: 12 }}>
+					<Flex display={{ base: 'none', md: 'flex' }} mr={{ md: 0, lg: 20, xl: 52 }} my={{ md: 0, lg: 8, xl: 12 }}>
 						<DesktopNav />
 					</Flex>
 				</Stack>

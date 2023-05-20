@@ -145,11 +145,14 @@ const Kalendaryo = props => {
 
     const onUpdateSubmit = data => {
         props.updateEventClient(currentId, data, () => successEdit())
+        console.log(data);
         reset();
-        setStatus("");
+        setMyData(data);
         props.fetchAllEventClients();
         dispatch(actions.fetchAll());
         modal.onClose();
+        setStatus("");
+        window.location.reload();
     }
 
     const openModal = () => {
@@ -204,11 +207,14 @@ const Kalendaryo = props => {
     }, [watchTypeCheck]);
 
     useEffect(() => {
+        setMyData(data);
         props.fetchAllEventClients();
         dispatch(actions.fetchAll());
     }, []);
 
     useEffect(() => {
+        setMyData(data);
+        props.fetchAllEventClients();
         dispatch(actions.fetchAll());
     }, [dispatch]);
 
@@ -391,6 +397,22 @@ const Kalendaryo = props => {
                                         {errors.name && errors.name.message}
                                     </FormErrorMessage>
                                 </FormControl>
+
+                                {/* <FormControl mt={3}>
+                                    <FormLabel>Email</FormLabel>
+                                    <Input
+                                        // value={values.eventName}
+                                        // onChange={handleInputChange}
+                                        placeholder='Enter your email'
+                                        id='email'
+                                        {...register('email', {
+                                            required: 'This is required'
+                                        })}
+                                    />
+                                    <FormErrorMessage>
+                                        {errors.email && errors.email.message}
+                                    </FormErrorMessage>
+                                </FormControl> */}
 
                                 <Stack direction="row" mt={3}>
                                     <FormControl>
