@@ -145,14 +145,12 @@ const Kalendaryo = props => {
 
     const onUpdateSubmit = data => {
         props.updateEventClient(currentId, data, () => successEdit())
-        console.log(data);
-        reset();
         setMyData(data);
         props.fetchAllEventClients();
         dispatch(actions.fetchAll());
         modal.onClose();
+        reset();
         setStatus("");
-        window.location.reload();
     }
 
     const openModal = () => {
@@ -163,6 +161,7 @@ const Kalendaryo = props => {
     const closeModal = () => {
         setStatus("")
         modal.onClose();
+        reset();
     }
 
     const handleDelete = (id) => {
@@ -221,6 +220,7 @@ const Kalendaryo = props => {
 
     useEffect(() => {
         setMyData(data);
+        props.fetchAllEventClients();
         dispatch(actions.fetchAll());
     }, [data]);
 
@@ -266,8 +266,8 @@ const Kalendaryo = props => {
                                         {
                                             props.clientList.length > 0 ? props.clientList.map(data => {
 
-                                                const result = Object.values(data);
-                                                const eventDateFinal = result[7].slice(0, 10);
+                                                const eventDateString = data.eventDate.toString();
+                                                const eventDateFinal = eventDateString.slice(0, 10);
 
                                                 if (eventDateFinal === dateFinal) {
                                                     dateArray.push(eventDateFinal);
@@ -275,6 +275,7 @@ const Kalendaryo = props => {
                                                 } else {
                                                     dateArray = [];
                                                 }
+
                                                 return (
                                                     dateArray.includes(eventDateFinal) ?
                                                         <Tr key={data.id}>
@@ -301,7 +302,7 @@ const Kalendaryo = props => {
                                                                 </Button>
                                                             </Td>
 
-                                                            <AlertDialog
+                                                            {/* <AlertDialog
                                                                 isOpen={dialog.isOpen}
                                                                 leastDestructiveRef={cancelRef}
                                                                 onClose={dialog.onClose}
@@ -330,7 +331,7 @@ const Kalendaryo = props => {
                                                                         </AlertDialogFooter>
                                                                     </AlertDialogContent>
                                                                 </AlertDialogOverlay>
-                                                            </AlertDialog>
+                                                            </AlertDialog> */}
                                                         </Tr>
                                                         : null
                                                 )
@@ -379,7 +380,7 @@ const Kalendaryo = props => {
                     <form onSubmit={handleSubmit(status == "create" ? onCreateSubmit : onUpdateSubmit)}>
                         <ModalOverlay />
                         <ModalContent>
-                            <ModalHeader>Add an Event</ModalHeader>
+                            {status == "create" ? <ModalHeader>Add an Event</ModalHeader> : <ModalHeader>Edit Event</ModalHeader>}
                             <ModalCloseButton />
                             <ModalBody pb={6}>
                                 <FormControl>
